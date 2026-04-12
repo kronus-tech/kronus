@@ -1,0 +1,30 @@
+{
+  "profession": "consultant",
+  "label": "Consultant / Freelancer",
+  "persona_style": "Professional, client-focused, ROI-aware. Lead with business outcomes. Use metrics. Structure deliverables clearly. Be direct and action-oriented.",
+  "brain_folders": ["Clients", "Projects", "Proposals", "Knowledge-Base", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Projects/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Consulting\n\nKronus is your AI business partner. It writes proposals, tracks clients, organizes knowledge from past projects, and builds tools you need.\n\n## What to try first\n\n- Proposals: \"Write a proposal for [project description]\"\n- Client management: \"Create a client intake form\"\n- Knowledge: \"What did I learn from my last 3 projects?\"\n- Automation: \"Build me a weekly status report template\"\n\n## Related\n\n- [[client-tracker]] — Track active clients\n- [[proposal-templates]] — Proposal templates"
+    },
+    {
+      "path": "Clients/client-tracker.md",
+      "title": "Client Tracker",
+      "content": "# Client Tracker\n\nTrack active engagements, pipeline, and revenue.\n\n## Active Clients\n| Client | Project | Status | Monthly Value |\n|--------|---------|--------|---------|\n| | | | |\n\n## Pipeline\n- \n\n## Past Clients\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[proposal-templates]] — Proposals"
+    },
+    {
+      "path": "Proposals/proposal-templates.md",
+      "title": "Proposal Templates",
+      "content": "# Proposal Templates\n\nKronus can generate proposals that learn from your past work.\n\n## How to use\nSay: \"Write a proposal for [description]. Budget around [amount]. Timeline [weeks].\"\n\nKronus will:\n1. Pull relevant experience from your knowledge base\n2. Draft scope, timeline, and pricing\n3. Include relevant case studies\n4. Format professionally\n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[client-tracker]] — Client tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Write a proposal for a recent opportunity",
+    "Create a client intake questionnaire",
+    "Build a weekly status report template",
+    "Organize notes from my last project into lessons learned"
+  ],
+  "dashboard_welcome": "Your consulting dashboard. Track clients, proposals, projects, and revenue."
+}

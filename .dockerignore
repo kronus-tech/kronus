@@ -1,0 +1,28 @@
+node_modules
+.git
+.gitignore
+*.md
+!daemon/src/**
+!daemon/dashboard/**
+!.claude/agents/*.md
+!.claude/skills/**/*.md
+!.claude/rules/*.md
+!.claude/teams/*.yaml
+!config/*.json
+!config/.env.example
+
+# User data
+data/
+.env
+daemon/dashboard/node_modules
+daemon/node_modules
+.claude/agent-memory
+.claude/agent-memory-local
+.claude/settings.local.json
+.claude/mcp.json
+.claude/commands
+
+# OS
+.DS_Store
+*.swp
+*.swo

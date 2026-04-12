@@ -1,0 +1,30 @@
+{
+  "profession": "lawyer",
+  "label": "Lawyer / Legal Professional",
+  "persona_style": "Precise, thorough, legally aware. Use clear structure. Flag risks and caveats. Reference jurisdictions when relevant. Maintain confidentiality awareness.",
+  "brain_folders": ["Cases", "Clients", "Legal-Research", "Templates", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Cases/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Legal Work\n\nKronus is your AI legal assistant. It organizes your cases, drafts documents, researches precedents, and tracks client matters.\n\n## What to try first\n\n- Draft documents: \"Draft a non-disclosure agreement for [scenario]\"\n- Research: \"Find relevant case law on [topic] in [jurisdiction]\"\n- Organize: \"Create a case summary template\"\n- Review: \"Review this contract and flag potential issues\"\n\n## Important\n\nKronus runs locally on your machine. Client data stays on your device and is never sent to third-party servers beyond the AI API.\n\n## Related\n\n- [[client-tracker]] — Track active clients and matters\n- [[document-templates]] — Your document templates"
+    },
+    {
+      "path": "Clients/client-tracker.md",
+      "title": "Client Tracker",
+      "content": "# Client & Matter Tracker\n\nTrack active clients, matters, and deadlines.\n\n## Active Matters\n| Client | Matter | Status | Next Deadline |\n|--------|--------|--------|---------|\n| | | | |\n\n## Upcoming Deadlines\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[document-templates]] — Templates"
+    },
+    {
+      "path": "Templates/document-templates.md",
+      "title": "Document Templates",
+      "content": "# Document Templates\n\nAsk Kronus to generate any of these — it will adapt to your jurisdiction and style.\n\n## Available Templates\n- Non-Disclosure Agreement\n- Engagement Letter\n- Case Summary\n- Legal Memorandum\n- Client Intake Form\n\n## How to use\nJust say: \"Draft a [template name] for [situation]\"\n\nKronus will ask clarifying questions and generate a draft for your review.\n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[client-tracker]] — Client tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Draft a non-disclosure agreement for a new client",
+    "Create a case summary template I can reuse",
+    "Review a contract and flag potential issues",
+    "Research case law on a topic I'm working on"
+  ],
+  "dashboard_welcome": "Your legal dashboard. Track cases, clients, deadlines, and document drafts."
+}

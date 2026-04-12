@@ -1,0 +1,38 @@
+{
+  "namespace": "<project_name>",
+  "created_at": "2025-11-11T00:00:00Z",
+  "last_updated": "2025-11-11T00:00:00Z",
+  "description": "<project description>",
+
+  "summaries": [
+    {
+      "timestamp": "2025-11-11T00:00:00Z",
+      "summary_text": "<compressed summary>",
+      "key_changes": [],
+      "source": "commit:abc123 or pr:42 or meeting:2025-11-11"
+    }
+  ],
+
+  "active_tasks": [
+    {
+      "id": "T001",
+      "description": "<task description>",
+      "status": "pending|in_progress|blocked",
+      "assigned_agent": "<agent_name>",
+      "created_at": "2025-11-11T00:00:00Z",
+      "priority": "high|medium|low"
+    }
+  ],
+
+  "completed_tasks": [],
+
+  "key_files": [
+    "<path/to/important/file.js>"
+  ],
+
+  "tech_stack": [
+    "<technology or framework>"
+  ],
+
+  "notes": "<any important context or decisions>"
+}

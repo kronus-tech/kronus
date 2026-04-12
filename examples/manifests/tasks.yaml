@@ -1,0 +1,45 @@
+# Example task manifest for kronus-batch.sh
+# Usage: ./scripts/kronus-batch.sh --manifest examples/manifests/tasks.yaml
+
+tasks:
+  - id: "plan-feature"
+    agent: "planner"
+    task: "Plan a user notification system with email and push notifications"
+    dir: "."
+    depends_on: []
+
+  - id: "design-api"
+    agent: "backend-infra"
+    task: "Design REST API for notification preferences and delivery"
+    dir: "."
+    depends_on: ["plan-feature"]
+
+  - id: "build-ui"
+    agent: "frontend-dev"
+    task: "Build notification settings UI with toggle controls"
+    dir: "."
+    depends_on: ["plan-feature"]
+
+  - id: "generate-tests"
+    agent: "test-generator"
+    task: "Generate integration tests for notification API and UI components"
+    dir: "."
+    depends_on: ["design-api", "build-ui"]
+
+  - id: "security-check"
+    agent: "security-auditor"
+    task: "Audit notification system for data privacy and injection risks"
+    dir: "."
+    depends_on: ["design-api"]
+
+  - id: "run-tests"
+    agent: "test-runner"
+    task: "Execute all notification tests and report coverage"
+    dir: "."
+    depends_on: ["generate-tests"]
+
+  - id: "final-review"
+    agent: "code-reviewer"
+    task: "Review complete notification feature implementation"
+    dir: "."
+    depends_on: ["run-tests", "security-check"]

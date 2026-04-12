@@ -1,0 +1,44 @@
+{
+  "name": "code-analyzer",
+  "display_name": "Code Analyzer",
+  "version": "0.1.0",
+  "description": "Analyze local codebases via MCP. Provides language breakdowns, dependency graphs, code quality pattern detection, and architecture maps for any repository on the local filesystem.",
+  "author": "kronus-tech",
+  "category": "developer-tools",
+  "tags": ["code-analysis", "dependencies", "architecture", "local"],
+  "mcp": {
+    "transport": "streamable-http",
+    "endpoint": "/mcp",
+    "protocol_version": "2024-11-05"
+  },
+  "server": {
+    "port": 3201,
+    "health_endpoint": "/health",
+    "start_command": "bun run start"
+  },
+  "tools": [
+    {
+      "name": "analyze_repo",
+      "description": "Analyze a local repository directory — file counts by language, top-level structure, key file presence."
+    },
+    {
+      "name": "dependency_graph",
+      "description": "Parse package.json / requirements.txt / go.mod and return a structured dependency list."
+    },
+    {
+      "name": "find_patterns",
+      "description": "Detect code quality patterns: large files, deep nesting, missing tests."
+    },
+    {
+      "name": "architecture_map",
+      "description": "Generate a text-based architecture diagram of a repository."
+    }
+  ],
+  "permissions": {
+    "filesystem": "read",
+    "network": "none"
+  },
+  "pricing": {
+    "model": "free"
+  }
+}

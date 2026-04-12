@@ -1,0 +1,30 @@
+{
+  "profession": "business",
+  "label": "Business Owner / Manager",
+  "persona_style": "Strategic, results-oriented, clear. Focus on ROI and efficiency. Use dashboards and metrics. Summarize before going deep. Be actionable.",
+  "brain_folders": ["Projects", "Operations", "Strategy", "Contacts", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Projects/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Business\n\nKronus is your AI business assistant. It builds tools, tracks operations, writes reports, and helps you stay on top of everything.\n\n## What to try first\n\n- Reporting: \"Create a weekly business summary template\"\n- Operations: \"Build me a project status tracker\"\n- Communication: \"Draft an update email to the team about [topic]\"\n- Analysis: \"Analyze these numbers and give me key insights\"\n\n## Related\n\n- [[project-tracker]] — Track active projects\n- [[decision-log]] — Record important decisions"
+    },
+    {
+      "path": "Operations/project-tracker.md",
+      "title": "Project Tracker",
+      "content": "# Project Tracker\n\nTrack active projects, milestones, and team assignments.\n\n## Active Projects\n| Project | Owner | Status | Next Milestone |\n|---------|-------|--------|---------|\n| | | | |\n\n## Completed This Quarter\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[decision-log]] — Decision log"
+    },
+    {
+      "path": "Strategy/decision-log.md",
+      "title": "Decision Log",
+      "content": "# Decision Log\n\nKronus automatically tracks decisions from your conversations. You can also add them manually here.\n\n## Recent Decisions\n| Date | Decision | Context | Impact |\n|------|----------|---------|--------|\n| | | | |\n\n## Pending Decisions\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[project-tracker]] — Project tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Create a weekly status report template",
+    "Build a project tracker for my team",
+    "Draft an update email about current priorities",
+    "Summarize key decisions from this month"
+  ],
+  "dashboard_welcome": "Your business dashboard. Track projects, operations, and team activity."
+}

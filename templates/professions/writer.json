@@ -1,0 +1,30 @@
+{
+  "profession": "writer",
+  "label": "Writer / Content Creator",
+  "persona_style": "Creative, articulate, voice-aware. Adapt to the writer's tone. Suggest without overwriting. Focus on clarity, structure, and audience engagement.",
+  "brain_folders": ["Drafts", "Published", "Research", "Ideas", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Ideas/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Writing\n\nKronus is your AI writing partner. It helps with research, drafting, editing, and organizing your work — without overwriting your voice.\n\n## What to try first\n\n- Research: \"Research [topic] and give me 5 key angles\"\n- Outline: \"Create an outline for an article about [topic]\"\n- Edit: \"Review this draft for clarity and flow\"\n- Ideas: \"Generate 10 content ideas about [niche]\"\n\n## Related\n\n- [[content-calendar]] — Track your publishing schedule\n- [[style-guide]] — Your writing style preferences"
+    },
+    {
+      "path": "Drafts/content-calendar.md",
+      "title": "Content Calendar",
+      "content": "# Content Calendar\n\nTrack what you're working on and when it's due.\n\n## This Week\n| Piece | Platform | Status | Deadline |\n|-------|----------|--------|---------|\n| | | | |\n\n## Ideas Queue\n- \n\n## Published This Month\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[style-guide]] — Style preferences"
+    },
+    {
+      "path": "Research/style-guide.md",
+      "title": "My Style Guide",
+      "content": "# My Style Guide\n\nKronus learns your voice over time. Help it by noting your preferences.\n\n## Tone\n- \n\n## Audience\n- \n\n## Platforms\n- \n\n## Things to avoid\n- \n\n## Favorite phrases or structures\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[content-calendar]] — Content calendar"
+    }
+  ],
+  "suggested_first_actions": [
+    "Generate 10 content ideas for my niche",
+    "Create an outline for my next article",
+    "Review a draft for clarity and engagement",
+    "Research a topic and summarize key angles"
+  ],
+  "dashboard_welcome": "Your writing dashboard. Track drafts, ideas, and published work."
+}

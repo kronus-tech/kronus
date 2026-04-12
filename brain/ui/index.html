@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <title>Kronus Brain</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div id="header-top">
+      <h1>Knowledge Graph</h1>
+      <input type="search" id="search" placeholder="Search notes..." />
+      <span id="search-feedback"></span>
+      <div style="flex:1"></div>
+      <button id="theme-toggle" title="Toggle theme">
+        <svg id="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <div id="header-filters">
+      <div id="source-filters">
+        <button class="source-filter active" data-source="all">All</button>
+        <button class="source-filter" data-source="personal">My Notes</button>
+        <button class="source-filter" data-source="project">AI Memories</button>
+      </div>
+      <select id="project-filter">
+        <option value="all">All Projects</option>
+      </select>
+      <div id="filters">
+        <button class="filter active" data-type="all">All</button>
+        <button class="filter" data-type="project" style="--color: #3b82f6">Active</button>
+        <button class="filter" data-type="area" style="--color: #22c55e">Topics</button>
+        <button class="filter" data-type="resource" style="--color: #f59e0b">Reference</button>
+        <button class="filter" data-type="archive" style="--color: #6b7280">Archive</button>
+        <button class="filter" data-type="orphan" style="--color: #ef4444">Unlinked</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <svg id="graph"></svg>
+  </main>
+
+  <aside id="detail" class="hidden">
+    <div id="detail-header">
+      <h2 id="detail-title"></h2>
+      <button id="close-detail"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="12" y2="12"/><line x1="12" y1="2" x2="2" y2="12"/></svg></button>
+    </div>
+    <div id="detail-meta"></div>
+    <div id="detail-tags"></div>
+    <div id="detail-links">
+      <div id="detail-outlinks"><h3>References</h3><ul></ul></div>
+      <div id="detail-backlinks"><h3>Referenced by</h3><ul></ul></div>
+    </div>
+    <div id="detail-content" class="hidden"></div>
+    <div id="detail-actions">
+      <button id="btn-preview">View Content</button>
+      <button id="btn-open">Open File</button>
+      <button id="btn-copy-path">Copy Location</button>
+      <input id="path-to" placeholder="Find connection to..." />
+    </div>
+  </aside>
+
+  <div id="stats"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="/graph.js"></script>
+</body>
+</html>

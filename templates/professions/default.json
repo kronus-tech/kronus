@@ -1,0 +1,30 @@
+{
+  "profession": "general",
+  "label": "Other",
+  "persona_style": "Helpful, clear, adaptable. Adjust to the user's domain over time. Ask clarifying questions. Be thorough but concise.",
+  "brain_folders": ["Projects", "Notes", "Research", "Templates", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Notes/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus\n\nKronus is your AI assistant. It builds tools, organizes your work, and remembers everything — adapting to how you work over time.\n\n## What to try first\n\n- Organize: \"Help me organize my [documents/notes/projects]\"\n- Build: \"Create a [tracker/template/form] for [purpose]\"\n- Research: \"Research [topic] and summarize the key points\"\n- Write: \"Draft a [document/email/report] about [topic]\"\n\n## Tips\n\n- Just describe what you need in plain language\n- Kronus asks before doing anything irreversible\n- It learns your preferences over time\n\n## Related\n\n- [[project-tracker]] — Track your projects\n- [[quick-reference]] — Common things to ask"
+    },
+    {
+      "path": "Projects/project-tracker.md",
+      "title": "Project Tracker",
+      "content": "# Project Tracker\n\nKeep track of what you're working on.\n\n## Active\n| Project | Status | Next Step |\n|---------|--------|---------|\n| | | |\n\n## Ideas\n- \n\n## Completed\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[quick-reference]] — Quick reference"
+    },
+    {
+      "path": "Notes/quick-reference.md",
+      "title": "Quick Reference",
+      "content": "# Quick Reference\n\nCommon things you can ask Kronus to do:\n\n## Organize\n- \"Create a folder structure for [project]\"\n- \"Organize my notes by topic\"\n- \"Build a tracking spreadsheet for [thing]\"\n\n## Write\n- \"Draft an email about [topic]\"\n- \"Write a summary of [document]\"\n- \"Create a template for [purpose]\"\n\n## Research\n- \"Research [topic] and give me the key points\"\n- \"Compare [option A] vs [option B]\"\n- \"Find examples of [thing]\"\n\n## Build\n- \"Build me a [tool/tracker/form]\"\n- \"Create a dashboard for [data]\"\n- \"Automate [repetitive task]\"\n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[project-tracker]] — Project tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Help me organize my current work",
+    "Create a project tracker for what I'm doing",
+    "Draft a document I've been putting off",
+    "Research a topic I need to learn about"
+  ],
+  "dashboard_welcome": "Your personal dashboard. Track projects, notes, and AI activity."
+}

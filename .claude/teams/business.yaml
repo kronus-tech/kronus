@@ -1,0 +1,24 @@
+name: business
+description: Business team for lead generation, proposals, content, and profile optimization. Context retrieval then parallel content generation.
+agents:
+  - proposal-writer
+  - memory-retriever
+skills:
+  - upwork-proposal
+  - lead-qualify
+  - cold-outreach
+  - case-study
+  - profile-optimize
+  - linkedin-post
+  - seo-article
+lead: proposal-writer
+strategy: fan-out-fan-in
+parallel_groups:
+  context: [memory-retriever]
+  generate: [upwork-proposal, cold-outreach, linkedin-post, seo-article]
+  review: [proposal-writer]
+use_cases:
+  - Client proposal creation with past context
+  - Lead qualification and outreach campaigns
+  - Content blitz (article + post + case study in parallel)
+  - Profile optimization across platforms

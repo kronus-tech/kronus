@@ -1,0 +1,29 @@
+{
+  "name": "@kronus/hub",
+  "version": "5.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "test": "bun test",
+    "db:generate": "bunx drizzle-kit generate",
+    "db:push": "bunx drizzle-kit push",
+    "db:seed": "bun run src/db/seed.ts",
+    "db:studio": "bunx drizzle-kit studio"
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.0.0",
+    "drizzle-kit": "^0.30.0",
+    "drizzle-orm": "^0.41.0",
+    "hono": "^4.7.0",
+    "ioredis": "^5.4.0",
+    "jose": "^5.10.0",
+    "nanoid": "^5.0.0",
+    "postgres": "^3.4.5",
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.8.0"
+  }
+}

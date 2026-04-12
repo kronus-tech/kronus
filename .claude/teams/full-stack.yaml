@@ -1,0 +1,22 @@
+name: full-stack
+description: Full-stack team for end-to-end feature implementation. Parallel frontend+backend builds with integrated testing and security.
+agents:
+  - planner
+  - frontend-dev
+  - backend-infra
+  - security-auditor
+skills:
+  - test-gen
+  - test-run
+  - dep-check
+lead: planner
+strategy: pipeline
+parallel_groups:
+  design: [planner]
+  implement: [frontend-dev, backend-infra]
+  validate: [test-gen, test-run, security-auditor, dep-check]
+use_cases:
+  - End-to-end feature implementation
+  - Full-stack application development
+  - API + UI development with security review
+  - Database schema + API + frontend builds

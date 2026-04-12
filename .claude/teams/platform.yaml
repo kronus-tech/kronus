@@ -1,0 +1,29 @@
+name: platform
+description: Platform engineering team for Kronus Hub, Connect SDK, MCP Gateway, and marketplace. Handles API development, security auditing, and integration testing.
+agents:
+  - planner
+  - backend-infra
+  - security-auditor
+  - code-reviewer
+  - hub-architect
+  - integration-tester
+skills:
+  - test-gen
+  - test-run
+  - secret-scan
+  - dep-check
+  - hub-status
+  - manifest-validate
+lead: planner
+strategy: pipeline
+parallel_groups:
+  design: [planner, hub-architect]
+  implement: [backend-infra]
+  security: [security-auditor, secret-scan, dep-check]
+  validate: [test-gen, test-run, code-reviewer, integration-tester]
+use_cases:
+  - Hub API development and testing
+  - Connect protocol implementation
+  - MCP gateway setup and validation
+  - Platform security audits
+  - Marketplace app review pipeline

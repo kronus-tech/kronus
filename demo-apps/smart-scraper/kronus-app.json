@@ -1,0 +1,21 @@
+{
+  "name": "smart-scraper",
+  "display_name": "Smart Scraper",
+  "version": "0.1.0",
+  "description": "AI-powered web scraping MCP server that extracts structured data from any URL",
+  "type": "developer_mcp",
+  "author": { "name": "Kronus", "url": "https://kronus.tech" },
+  "mcp_url": "http://localhost:3200/mcp",
+  "pricing": { "model": "free" },
+  "kronus_min_version": "5.3.0",
+  "mcp": {
+    "tools": [
+      { "name": "scrape_url", "description": "Scrape and extract structured data from a URL" },
+      { "name": "scrape_batch", "description": "Scrape multiple URLs in parallel" },
+      { "name": "extract_data", "description": "Extract data matching a user-defined schema" }
+    ]
+  },
+  "categories": ["data", "scraping"],
+  "tags": ["web", "html", "extraction"],
+  "health_check": { "endpoint": "http://localhost:3200/health", "interval_seconds": 300 }
+}

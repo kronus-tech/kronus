@@ -1,0 +1,33 @@
+# Example cron manifest for kronus-cron.sh
+# Usage: ./scripts/kronus-cron.sh --install --manifest examples/manifests/cron.yaml
+
+jobs:
+  - name: "daily-summary"
+    schedule: "0 9 * * 1-5"  # Weekdays at 9 AM
+    agent: "project-summarizer"
+    task: "Summarize yesterday's commits and activity"
+    dirs:
+      - "~/projects/myapp"
+      - "~/projects/api"
+
+  - name: "weekly-security"
+    schedule: "0 10 * * 1"  # Monday at 10 AM
+    agent: "security-auditor"
+    task: "Run weekly dependency scan and vulnerability check"
+    dirs:
+      - "~/projects/myapp"
+      - "~/projects/api"
+
+  - name: "nightly-tests"
+    schedule: "0 2 * * *"  # Every night at 2 AM
+    agent: "test-runner"
+    task: "Execute full test suite and report coverage"
+    dirs:
+      - "~/projects/myapp"
+
+  - name: "friday-briefing"
+    schedule: "0 16 * * 5"  # Friday at 4 PM
+    agent: "planner"
+    task: "Generate weekly progress briefing and next week priorities"
+    dirs:
+      - "~/projects/myapp"

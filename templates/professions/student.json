@@ -1,0 +1,30 @@
+{
+  "profession": "student",
+  "label": "Student",
+  "persona_style": "Encouraging, educational, clear. Explain concepts thoroughly. Use examples. Help build understanding, not just give answers. Suggest study strategies.",
+  "brain_folders": ["Courses", "Assignments", "Study-Notes", "Resources", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Study-Notes/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Studying\n\nKronus is your AI study partner. It explains concepts, helps with assignments, organizes your notes, and tracks your courses.\n\n## What to try first\n\n- Explain: \"Explain [concept] in simple terms with examples\"\n- Study: \"Create flashcards for [topic]\"\n- Organize: \"Help me organize my notes for [course]\"\n- Write: \"Help me outline my essay on [topic]\"\n\n## Tips\n\n- Ask it to explain things in different ways until it clicks\n- Use it to check your understanding: \"Am I right that [explanation]?\"\n- Have it quiz you before exams\n\n## Related\n\n- [[course-tracker]] — Track your courses\n- [[study-methods]] — Study strategies that work"
+    },
+    {
+      "path": "Courses/course-tracker.md",
+      "title": "Course Tracker",
+      "content": "# Course Tracker\n\nKeep track of your courses, assignments, and grades.\n\n## Current Courses\n| Course | Professor | Status | Grade |\n|--------|-----------|--------|---------|\n| | | | |\n\n## Upcoming Deadlines\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[study-methods]] — Study strategies"
+    },
+    {
+      "path": "Study-Notes/study-methods.md",
+      "title": "Study Methods",
+      "content": "# Study Methods\n\nStrategies that work for you. Kronus can help with all of these.\n\n## Active Recall\nAsk Kronus: \"Quiz me on [topic]\" or \"Create practice questions for [chapter]\"\n\n## Spaced Repetition\nAsk Kronus: \"Create a review schedule for my [exam] on [date]\"\n\n## Note Summarization\nAsk Kronus: \"Summarize my notes on [topic] into key points\"\n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[course-tracker]] — Course tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Explain a concept I'm struggling with",
+    "Help me organize my notes for a course",
+    "Create practice questions for an upcoming exam",
+    "Help me outline an essay"
+  ],
+  "dashboard_welcome": "Your study dashboard. Track courses, assignments, and study progress."
+}

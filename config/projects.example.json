@@ -1,0 +1,7 @@
+{
+  "projects": {},
+  "defaults": {
+    "allowedTools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill", "Agent", "TaskCreate", "TaskUpdate"],
+    "permissionMode": "acceptEdits"
+  }
+}

@@ -1,0 +1,23 @@
+name: engineering
+description: Engineering team for feature development, architecture decisions, and code quality. Uses agents for complex work and skills for testing/review.
+agents:
+  - planner
+  - ai-engineer
+  - code-reviewer
+  - frontend-dev
+  - backend-infra
+skills:
+  - test-gen
+  - test-run
+  - quick-review
+lead: planner
+strategy: pipeline
+parallel_groups:
+  design: [ai-engineer]
+  implement: [frontend-dev, backend-infra]
+  validate: [test-gen, test-run, code-reviewer]
+use_cases:
+  - Feature development from design to testing
+  - Architecture decisions and technical design
+  - Code quality improvements and refactoring
+  - Test suite creation and execution

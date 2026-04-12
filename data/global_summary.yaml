@@ -1,0 +1,20 @@
+# Global Summary - Aggregated Project State
+# Updated by save_session.sh script
+
+last_updated: null
+
+total_projects: 0
+
+active_projects: []
+
+recent_activity: []
+
+# Weekly statistics
+weekly_stats:
+  commits: 0
+  prs_reviewed: 0
+  tests_generated: 0
+  proposals_written: 0
+
+# Top priorities (updated by planner)
+top_priorities: []

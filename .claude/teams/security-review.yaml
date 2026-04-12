@@ -1,0 +1,21 @@
+name: security-review
+description: Security team for vulnerability assessment, penetration testing, and compliance audits. Parallel scanning with sequential review.
+agents:
+  - security-auditor
+  - fuzzing-agent
+  - code-reviewer
+skills:
+  - dep-check
+  - secret-scan
+  - test-gen
+lead: security-auditor
+strategy: fan-out-fan-in
+parallel_groups:
+  scan: [security-auditor, fuzzing-agent, dep-check, secret-scan]
+  review: [code-reviewer]
+  fix: [test-gen]
+use_cases:
+  - Comprehensive security audits
+  - Vulnerability assessment and remediation
+  - Penetration testing with adversarial inputs
+  - Compliance and secret detection

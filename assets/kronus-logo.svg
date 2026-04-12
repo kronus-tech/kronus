@@ -1,0 +1,45 @@
+<svg viewBox="0 0 580 580" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="wg" cx="290" cy="286" r="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#030104"/>
+      <stop offset="45%" stop-color="#993D00"/>
+      <stop offset="100%" stop-color="#B34700" stop-opacity="0.5"/>
+    </radialGradient>
+    <filter id="tile-shadow" x="-15%" y="-10%" width="140%" height="140%">
+      <!-- Deep base shadow -->
+      <feDropShadow dx="8" dy="12" stdDeviation="10" flood-color="#2a2a2a" flood-opacity="0.4"/>
+      <!-- Mid shadow -->
+      <feDropShadow dx="4" dy="7" stdDeviation="5" flood-color="#3d3d3d" flood-opacity="0.3"/>
+      <!-- Close contact shadow -->
+      <feDropShadow dx="1.5" dy="2.5" stdDeviation="2" flood-color="#555555" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Tilted tile -->
+  <rect x="30" y="26" width="520" height="520" rx="8" ry="8" fill="#f8f7f5" filter="url(#tile-shadow)" transform="rotate(3, 290, 286)"/>
+  <rect x="30" y="26" width="520" height="520" rx="8" ry="8" fill="none" stroke="#e0ded9" stroke-width="0.6" transform="rotate(3, 290, 286)"/>
+
+  <!-- Web centered on tile -->
+  <g transform="translate(34, 30)">
+    <!-- Main web structure -->
+    <path fill="url(#wg)" d="M429.983,349.78V164.817l20.07-11.563l-7.824-13.581l-19.889,11.457L263.844,59.894V0H248.17v59.292L91.386,149.545
+      l-20.265-11.984l-7.979,13.491l17.844,10.551v186.182l-50.714,29.216l7.824,13.581l51.055-29.413l159.019,91.539v22.72h15.673
+      v-23.322l156.269-89.955l52.26,30.904l7.978-13.491L429.983,349.78z M96.66,170.872l39.706,23.481V256h15.673v-52.379
+      l39.706,23.481v56.875L96.66,338.756V170.872z M248.169,434.622l-143.316-82.499l39.418-22.709l103.898,59.731V434.622z
+       M248.17,371.066l-88.193-50.701l39.675-22.856l48.518,28.129V371.066z M248.17,307.521l-32.843-19.041l32.843-18.921V307.521z
+       M207.419,274.947v-38.577l33.043,19.541L207.419,274.947z M248.17,242.262l-32.261-19.078l32.261-18.705V242.262z
+       M248.17,186.361l-47.731,27.673l-39.033-23.083l86.764-50.036V186.361z M248.17,122.824l-102.254,58.969l-39.033-23.083
+      L248.17,77.377V122.824z M263.844,141.519l43.591,25.138l7.83-13.577l-51.422-29.654V77.979l142.794,82.199l-94.8,54.615
+      l-47.993-27.826V141.519z M358.929,205.751v102.01l-39.706-23.481v-55.654L358.929,205.751z M263.844,205.084l32.319,18.738
+      l-32.319,18.619V205.084z M303.55,237.655v37.356l-31.998-18.922L303.55,237.655z M263.844,269.739l31.744,18.773l-31.744,18.405
+      V269.739z M263.844,434.021V325.033l47.214-27.373l39.038,23.086l-42.628,24.597l7.833,13.575l50.283-29.014l39.032,23.082
+      L263.844,434.021z M414.309,340.51l-39.706-23.481V196.721l39.706-22.875V340.51z"/>
+    <!-- Accent marks -->
+    <rect x="278.802" y="355.46" transform="matrix(0.8662 -0.4997 0.4997 0.8662 -142.4594 194.5572)" width="26.54" height="15.673" fill="url(#wg)"/>
+    <rect x="322.526" y="157.257" transform="matrix(0.4996 -0.8663 0.8663 0.4996 17.3172 371.681)" width="15.674" height="27.189" fill="url(#wg)"/>
+    <rect x="248.17" y="485.878" width="15.673" height="26.122" fill="url(#wg)"/>
+    <rect x="453.436" y="126.897" transform="matrix(0.8665 -0.4992 0.4992 0.8665 -4.9761 250.8619)" width="26.123" height="15.674" fill="url(#wg)"/>
+    <rect x="39.068" y="119.28" transform="matrix(0.509 -0.8608 0.8608 0.509 -90.8855 105.3563)" width="15.674" height="26.123" fill="url(#wg)"/>
+    <rect x="136.366" y="265.404" width="15.673" height="26.122" fill="url(#wg)"/>
+  </g>
+</svg>

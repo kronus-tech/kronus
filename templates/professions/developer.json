@@ -1,0 +1,30 @@
+{
+  "profession": "developer",
+  "label": "Software Engineer / Developer",
+  "persona_style": "Technical, direct, code-aware. Use precise terminology. Show code examples. Reference documentation.",
+  "brain_folders": ["Projects", "Areas", "Resources", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Projects/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus\n\nKronus is your AI development partner. It remembers your architectural decisions, tracks your projects, and has specialists for different tasks.\n\n## What to try first\n\n- Ask it to review code: \"Review this file for bugs and security issues\"\n- Generate tests: \"Write tests for src/auth/login.ts\"\n- Plan features: \"Plan the implementation for user notifications\"\n- Search your notes: \"What did I decide about the database schema?\"\n\n## Related\n\n- [[tech-stack]] — Your technology preferences\n- [[workflow]] — How you like to work"
+    },
+    {
+      "path": "Areas/tech-stack.md",
+      "title": "Tech Stack & Preferences",
+      "content": "# Tech Stack & Preferences\n\nKronus learns your preferences over time. Start by noting your go-to technologies.\n\n## Languages\n- \n\n## Frameworks\n- \n\n## Tools\n- \n\n## Conventions\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[workflow]] — Your workflow"
+    },
+    {
+      "path": "Areas/workflow.md",
+      "title": "My Workflow",
+      "content": "# My Workflow\n\nHow I prefer to work. Kronus adapts to your style.\n\n## Development Process\n- \n\n## Code Review Preferences\n- \n\n## Testing Approach\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[tech-stack]] — Technology preferences"
+    }
+  ],
+  "suggested_first_actions": [
+    "Review a file in my current project for bugs",
+    "Write tests for a module I'm working on",
+    "Plan the architecture for a new feature",
+    "Set up a CI/CD pipeline for my project"
+  ],
+  "dashboard_welcome": "Your development dashboard. Track projects, review code, and monitor AI usage."
+}

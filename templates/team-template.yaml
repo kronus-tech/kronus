@@ -1,0 +1,30 @@
+# Team Configuration Template
+# Place in .claude/teams/ with a descriptive filename (e.g., my-team.yaml)
+
+# Team name — used as identifier in kronus-team.sh
+name: your-team-name
+
+# Description of what this team does
+description: Brief description of the team's purpose and when to use it
+
+# List of agent names that make up this team
+# Agents must exist in .claude/agents/
+agents:
+  - agent-name-1
+  - agent-name-2
+  - agent-name-3
+
+# Lead agent — coordinates the team (optional)
+lead: agent-name-1
+
+# Default execution strategy
+# - sequential: agents run one after another
+# - parallel: all agents run simultaneously
+# - pipeline: shared context flows through agents in order
+strategy: sequential
+
+# When to use this team
+use_cases:
+  - "Use case 1: When to use this team"
+  - "Use case 2: Another scenario"
+  - "Use case 3: Additional scenario"

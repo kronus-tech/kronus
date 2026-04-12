@@ -1,0 +1,57 @@
+# Kronus v5.5 — Docker Compose
+#
+# Quick start:
+#   1. Copy config:    cp config/.env.example .env
+#   2. Edit .env:      Add your name and (optionally) Telegram bot token
+#   3. Run:            docker-compose up -d
+#   4. Dashboard:      http://localhost:8420
+#   5. Knowledge Graph: http://localhost:4242
+#
+# Your data persists in Docker volumes between restarts.
+
+services:
+  kronus:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kronus
+    restart: unless-stopped
+    ports:
+      - "8420:8420"    # Dashboard
+      - "4242:4242"    # Knowledge Graph
+    env_file:
+      - .env
+    volumes:
+      # Your conversations and settings
+      - kronus-telegram:/root/.claude/channels/telegram
+
+      # Your knowledge base (notes, documents, memories)
+      - kronus-brain:/root/second-brain
+
+      # AI conversation memories (auto-collected)
+      - kronus-projects:/root/.claude/projects
+
+      # Knowledge graph database
+      - kronus-db:/root/.kronus
+
+      # Mount your project directories for the AI to work on
+      # Uncomment and edit these:
+      # - /path/to/project1:/projects/project1
+      # - /path/to/project2:/projects/project2
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8420/api/status"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  kronus-telegram:
+  kronus-brain:
+  kronus-projects:
+  kronus-db:

@@ -1,0 +1,7 @@
+{
+  "dmPolicy": "allowlist",
+  "allowFrom": [],
+  "groups": {},
+  "pending": {},
+  "_instructions": "Add your Telegram user ID to 'allowFrom'. Get it from @userinfobot on Telegram."
+}

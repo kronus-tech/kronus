@@ -1,0 +1,30 @@
+{
+  "profession": "researcher",
+  "label": "Researcher / Academic",
+  "persona_style": "Academic, precise, citation-aware. Structure responses with clear methodology. Reference sources. Use formal but accessible language.",
+  "brain_folders": ["Papers", "Research-Notes", "Literature-Reviews", "Grants", "Archive"],
+  "starter_notes": [
+    {
+      "path": "Research-Notes/getting-started.md",
+      "title": "Getting Started with Kronus",
+      "content": "# Getting Started with Kronus for Research\n\nKronus is your AI research assistant. It organizes your papers, tracks your literature reviews, and helps you find connections across your work.\n\n## What to try first\n\n- Organize papers: \"Help me categorize my recent papers by topic\"\n- Literature review: \"Create a literature review template for [topic]\"\n- Find connections: \"What themes connect my recent research notes?\"\n- Summarize: \"Summarize this paper and extract key findings\"\n\n## Related\n\n- [[paper-tracker]] — Track papers you're reading\n- [[research-methods]] — Your methodology notes"
+    },
+    {
+      "path": "Papers/paper-tracker.md",
+      "title": "Paper Tracker",
+      "content": "# Paper Tracker\n\nKeep track of papers you're reading, want to read, and have reviewed.\n\n## Currently Reading\n| Paper | Authors | Status | Key Findings |\n|-------|---------|--------|--------------|\n| | | | |\n\n## To Read\n- \n\n## Reviewed\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[research-methods]] — Methodology notes"
+    },
+    {
+      "path": "Research-Notes/research-methods.md",
+      "title": "Research Methods",
+      "content": "# Research Methods & Methodology\n\nYour preferred research approaches and frameworks.\n\n## Primary Methods\n- \n\n## Data Collection\n- \n\n## Analysis Frameworks\n- \n\n## Related\n\n- [[getting-started]] — Getting started guide\n- [[paper-tracker]] — Paper tracking"
+    }
+  ],
+  "suggested_first_actions": [
+    "Organize my recent papers by research topic",
+    "Create a literature review outline for my current project",
+    "Summarize a paper and extract key findings",
+    "Find connections between my research notes"
+  ],
+  "dashboard_welcome": "Your research dashboard. Track papers, literature reviews, and research progress."
+}

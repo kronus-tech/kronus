@@ -21,6 +21,21 @@ The setup asks you 5 questions: your name, what you do, how you like to work, wh
 
 That's it. You're ready.
 
+### Verify It Works
+
+```bash
+# Start Claude Code in any directory
+claude
+
+# Ask it about your agents
+> "What agents and skills do I have?"
+
+# Try a quick skill
+> /standup
+```
+
+If Claude lists your agents, Kronus is working. If not, see [Troubleshooting](TROUBLESHOOTING.md).
+
 ---
 
 ## What Happens During Setup
@@ -60,8 +75,15 @@ If you set up Telegram during install:
 1. Start Kronus: `~/.claude/daemon/scripts/kronus-daemon.sh start`
 2. Find your Telegram user ID: message [@userinfobot](https://t.me/userinfobot)
 3. Add your ID to `~/.claude/channels/telegram/access.json` → `allowFrom`
-4. Create a Telegram group, add your bot, and send `/setup /path/to/project`
-5. Start chatting — the AI works on your project
+4. Create a Telegram group and add your bot
+5. Send `/setup /path/to/project` (creates the directory if it doesn't exist)
+6. Start chatting — the AI works on your project
+
+**Adding other people to your group:**
+- Other members can use `/c <message>` to talk to Claude
+- They are treated as **collaborators** — Claude knows who sent each message
+- Collaborators cannot change permissions, access secrets, or run system commands
+- You (the admin) stay in full control
 
 ### Dashboard
 

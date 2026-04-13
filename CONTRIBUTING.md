@@ -458,10 +458,9 @@ Check if existing agents can handle the use case:
 
 ## 📚 Resources
 
-- [Claude Code Documentation](https://docs.claude.com/claude-code)
-- [Subagent Format Reference](./setup_reference_docs/claude_code_subagent_format_reference.md)
-- [Build Plan](./docs/BUILD-PLAN-5.30.md)
-- [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/prompt-engineering)
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
+- [Kronus Docs](https://github.com/kronus-tech/docs)
 
 ---
 
@@ -469,7 +468,6 @@ Check if existing agents can handle the use case:
 
 - **Issues**: [GitHub Issues](https://github.com/kronus-tech/kronus/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/kronus-tech/kronus/discussions)
-- **Email**: [GitHub Issues](https://github.com/kronus-tech/kronus/issues)
 
 ---
 

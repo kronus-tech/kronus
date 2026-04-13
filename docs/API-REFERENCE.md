@@ -1,6 +1,6 @@
 # Kronus Hub API Reference
 
-**Version:** 5.3.0
+**Version:** 1.0
 **Base URL:** `https://hub.kronus.dev` (or your self-hosted `HUB_URL`)
 
 ---

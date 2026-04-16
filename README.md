@@ -1,4 +1,8 @@
 <p align="center">
+  <a href="https://kronus.tech"><strong>🌐 kronus.tech</strong></a>
+</p>
+
+<p align="center">
   <img src="assets/kronus-logo.svg" alt="Kronus" width="80" />
 </p>
 

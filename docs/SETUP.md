@@ -17,6 +17,12 @@ git clone https://github.com/kronus-tech/kronus.git
 cd kronus && ./scripts/install.sh
 ```
 
+> **Note:** If `git clone` fails with "destination path already exists" (e.g. because Claude Code auto-created a `.claude/` directory), clone into a named folder instead:
+> ```bash
+> git clone https://github.com/kronus-tech/kronus.git kronus
+> cd kronus && ./scripts/install.sh
+> ```
+
 The setup asks you 5 questions: your name, what you do, how you like to work, whether you take notes, and what would be most useful. Then it sets everything up for you.
 
 That's it. You're ready.
@@ -72,12 +78,19 @@ Just run `claude` in any directory and start talking:
 
 If you set up Telegram during install:
 
-1. Start Kronus: `~/.claude/daemon/scripts/kronus-daemon.sh start`
-2. Find your Telegram user ID: message [@userinfobot](https://t.me/userinfobot)
-3. Add your ID to `~/.claude/channels/telegram/access.json` → `allowFrom`
-4. Create a Telegram group and add your bot
-5. Send `/setup /path/to/project` (creates the directory if it doesn't exist)
-6. Start chatting — the AI works on your project
+1. **Disable Privacy Mode** in BotFather (required for groups):
+   - Open [@BotFather](https://t.me/BotFather) on Telegram
+   - Send `/mybots` → select your bot → Bot Settings → Group Privacy → Turn Off
+   - If the bot is already in groups, **remove and re-add it** (privacy changes only apply to groups joined after the change)
+2. Start Kronus: `~/.claude/daemon/scripts/kronus-daemon.sh start`
+3. Find your Telegram user ID: message [@userinfobot](https://t.me/userinfobot)
+4. Add your ID **as a string** to `~/.claude/channels/telegram/access.json` → `allowFrom` (e.g. `["123456789"]`, not `[123456789]`)
+5. Create a Telegram group and add your bot
+6. Send `/setup /path/to/project` (creates the directory if it doesn't exist)
+   - If other bots are in the group, use `/setup@YourBotName /path/to/project`
+7. Start chatting — the AI works on your project
+
+> **If `/setup` doesn't work**, you can register the project manually. See [Manual Project Registration](#manual-project-registration) below.
 
 **Adding other people to your group:**
 - Other members can use `/c <message>` to talk to Claude
@@ -136,6 +149,51 @@ Knowledge Graph: `http://localhost:4242`
 # Remove Kronus (keeps your notes and data)
 ./scripts/install.sh --uninstall
 ```
+
+### Manual Project Registration
+
+If `/setup` doesn't work in your Telegram group (common when other bots are present, or privacy mode wasn't disabled), register the project manually:
+
+1. **Get the group chat ID**: Add [@GetIDsBot](https://t.me/getidsbot) to your group — it will post the group ID (a negative number like `-5106919157`). Then remove the bot.
+
+2. **Edit `~/.claude/channels/telegram/projects.json`**:
+   ```json
+   {
+     "projects": {
+       "-5106919157": {
+         "name": "my-project",
+         "path": "/Users/you/Desktop/my-project",
+         "allowedTools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash"],
+         "permissionMode": "acceptEdits"
+       }
+     },
+     "defaults": {
+       "allowedTools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill", "Agent", "TaskCreate", "TaskUpdate"],
+       "permissionMode": "acceptEdits"
+     }
+   }
+   ```
+
+3. **Edit `~/.claude/channels/telegram/access.json`** — add your group:
+   ```json
+   {
+     "dmPolicy": "allowlist",
+     "allowFrom": ["YOUR_TELEGRAM_USER_ID"],
+     "groups": {
+       "-5106919157": {
+         "requireMention": false,
+         "allowFrom": ["YOUR_TELEGRAM_USER_ID"],
+         "collaborators": [],
+         "adminUsers": ["YOUR_TELEGRAM_USER_ID"],
+         "collaboratorMode": "auto"
+       }
+     },
+     "pending": {}
+   }
+   ```
+   > **Important:** All Telegram user IDs must be **strings** (quoted), not numbers.
+
+4. **Restart the daemon**: `~/.claude/daemon/scripts/kronus-daemon.sh restart`
 
 ---
 

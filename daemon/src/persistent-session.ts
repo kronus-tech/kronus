@@ -24,6 +24,7 @@ export interface PersistentCallbacks {
   onPermissionDenied: (groupId: string, denials: PermissionDenial[], lastMessage: string) => Promise<void>
   onActivity: (groupId: string, type: string, data: Record<string, unknown>) => void
   onSessionReady: (groupId: string, sessionId: string) => void
+  onTurnComplete: (groupId: string) => void
   onProcessDied: (groupId: string) => void
 }
 
@@ -256,10 +257,16 @@ export class PersistentSession {
             const filesToSend = new Set<string>(writtenFiles)
 
             // Also detect paths mentioned in response text
-            const fileMatches = textToSend.match(/(?:\/|output\/)[^\s"'`\])>]+\.(png|jpg|jpeg|webp|pdf|zip)/gi)
+            const fileMatches = textToSend.match(/(?:\/|\.\/|output\/|~\/)[^\s"'`\])>]+\.(png|jpg|jpeg|webp|gif|pdf|zip|csv|xlsx)/gi)
             if (fileMatches) {
-              for (const fp of fileMatches) {
-                filesToSend.add(fp.replace(/[`"']/g, ""))
+              for (let fp of fileMatches) {
+                fp = fp.replace(/[`"']/g, "")
+                if (fp.startsWith("./")) {
+                  fp = join(this.projectPath, fp)
+                } else if (fp.startsWith("~/")) {
+                  fp = fp.replace("~", homedir())
+                }
+                filesToSend.add(fp)
               }
             }
 
@@ -340,6 +347,9 @@ export class PersistentSession {
           this.isProcessing = false
           this.stopTyping()
 
+          // Notify session manager so queued messages can be processed
+          this.callbacks.onTurnComplete(this.groupId)
+
           // Save transcript
           this.saveTranscript(textToSend ?? "", accumulatedText)
 
@@ -381,11 +391,30 @@ export class PersistentSession {
           const toolUse = extractToolUse(event)
           if (toolUse) {
             // Track image/doc files written by Claude for auto-send
-            if ((toolUse.name === "Write" || toolUse.name === "Bash") && toolUse.input.file_path) {
+            const sendableExts = ["png", "jpg", "jpeg", "webp", "gif", "pdf", "zip", "csv", "xlsx"]
+            if (toolUse.name === "Write" && toolUse.input.file_path) {
               const fp = String(toolUse.input.file_path)
               const ext = fp.split(".").pop()?.toLowerCase() ?? ""
-              if (["png", "jpg", "jpeg", "webp", "pdf", "zip"].includes(ext)) {
+              if (sendableExts.includes(ext)) {
                 writtenFiles.add(fp)
+              }
+            } else if (toolUse.name === "Bash" && toolUse.input.command) {
+              const cmd = String(toolUse.input.command)
+              const extPattern = sendableExts.join("|")
+              const outputPatterns = [
+                new RegExp(`(?:>\\s*|>>\\s*)([^\\s;|&]+\\.(?:${extPattern}))`, "gi"),
+                new RegExp(`(?:-o|--output)\\s+([^\\s;|&]+\\.(?:${extPattern}))`, "gi"),
+                new RegExp(`(?:cp|mv)\\s+[^\\s]+\\s+([^\\s;|&]+\\.(?:${extPattern}))`, "gi"),
+              ]
+              for (const pattern of outputPatterns) {
+                let match
+                while ((match = pattern.exec(cmd)) !== null) {
+                  let fp = match[1]
+                  if (!fp.startsWith("/")) {
+                    fp = join(this.projectPath, fp)
+                  }
+                  writtenFiles.add(fp)
+                }
               }
             }
 

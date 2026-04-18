@@ -106,7 +106,15 @@ function defaultAccess(): AccessConfig {
 export function loadAccess(): AccessConfig {
   try {
     const content = readFileSync(ACCESS_FILE, "utf8")
-    return JSON.parse(content) as AccessConfig
+    const raw = JSON.parse(content) as AccessConfig
+    // Coerce all IDs to strings (users may enter numbers in JSON)
+    raw.allowFrom = (raw.allowFrom ?? []).map(id => String(id))
+    for (const group of Object.values(raw.groups ?? {})) {
+      group.allowFrom = (group.allowFrom ?? []).map(id => String(id))
+      group.collaborators = (group.collaborators ?? []).map(id => String(id))
+      group.adminUsers = (group.adminUsers ?? []).map(id => String(id))
+    }
+    return raw
   } catch {
     return defaultAccess()
   }

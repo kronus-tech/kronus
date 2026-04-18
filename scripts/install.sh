@@ -336,6 +336,14 @@ fi
 
 # ─── Persona ──────────────────────────────────────────────────────────────
 
+# Pre-evaluate priority label (case inside heredoc fails in non-interactive shells)
+case "${PRIORITY:-4}" in
+  1) PRIORITY_LABEL="Organization and memory";;
+  2) PRIORITY_LABEL="Building and automation";;
+  3) PRIORITY_LABEL="Communication and collaboration";;
+  *) PRIORITY_LABEL="Everything — organize, build, communicate";;
+esac
+
 PERSONA_FILE="$BRAIN_DIR/kronus/.claude/rules/persona.md"
 if [[ ! -f "$PERSONA_FILE" ]]; then
   if ! $DRY_RUN; then
@@ -354,7 +362,7 @@ $PERSONA_STYLE
 
 - Name: $KRONUS_NAME
 - Profession: $PROF_LABEL
-- Priority: $(case "${PRIORITY:-4}" in 1) echo "Organization and memory";; 2) echo "Building and automation";; 3) echo "Communication and collaboration";; *) echo "Everything — organize, build, communicate";; esac)
+- Priority: $PRIORITY_LABEL
 
 ## Guidelines
 
@@ -521,9 +529,9 @@ if [[ -d "$KRONUS_ROOT/brain" ]] && check_dep "bun"; then
   SCAN_OUTPUT=$(cd "$KRONUS_ROOT/brain" && bun run src/scan.ts 2>&1) || true
 
   # Parse scan results
-  PERSONAL_COUNT=$(echo "$SCAN_OUTPUT" | grep -oP '\d+(?= personal)' || echo "0")
-  PROJECT_COUNT=$(echo "$SCAN_OUTPUT" | grep -oP '\d+(?= project)' || echo "0")
-  TOTAL_COUNT=$(echo "$SCAN_OUTPUT" | grep -oP '(\d+)(?= notes indexed)' || echo "0")
+  PERSONAL_COUNT=$(echo "$SCAN_OUTPUT" | grep -oE '[0-9]+ personal' | grep -oE '[0-9]+' || echo "0")
+  PROJECT_COUNT=$(echo "$SCAN_OUTPUT" | grep -oE '[0-9]+ project' | grep -oE '[0-9]+' || echo "0")
+  TOTAL_COUNT=$(echo "$SCAN_OUTPUT" | grep -oE '[0-9]+ notes indexed' | grep -oE '[0-9]+' || echo "0")
 
   if [[ "$TOTAL_COUNT" -gt 0 ]]; then
     log_success "Found $TOTAL_COUNT notes in your knowledge base"

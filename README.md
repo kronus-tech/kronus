@@ -6,26 +6,34 @@
   <img src="assets/kronus-logo.svg" alt="Kronus" width="80" />
 </p>
 
-<h1 align="center">Kronus</h1>
+<h1 align="center">Kronus (Private)</h1>
 
-<p align="center"><strong>Open-source AI agent system built on Claude Code.</strong></p>
-<p align="center">Build personal AI tools, run them from your phone, remember everything across projects.</p>
+<p align="center"><strong>Private fork of <a href="https://github.com/kronus-tech/kronus">kronus-tech/kronus</a>.</strong></p>
+<p align="center">Personal configs, internal docs, build plans. Public release lives at kronus-tech.</p>
 
 <p align="center">
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <img src="https://img.shields.io/badge/v1.0-stable-green" alt="v1.0" />
-  <a href="https://kronus.tech"><img src="https://img.shields.io/badge/kronus.tech-website-blue" alt="Website" /></a>
+  <img src="https://img.shields.io/badge/private-fork-red" alt="Private Fork" />
 </p>
 
 ---
+
+## Repo Strategy
+
+| Repo | Purpose | Visibility |
+|------|---------|-----------|
+| **kronus-tech/kronus** | Public release, community contributions | Public |
+| **kronus-tech/daemon** | Public daemon release | Public |
+| **par1kahl/kronus-par1k** (this) | Private fork — personal configs, internal docs | Private |
+| **par1kahl/kronus-par1k-daemon** | Private daemon — live running process | Private |
+
+**Workflow:** Development happens in kronus-tech. Pull updates here with `git pull kronus-tech main`.
 
 ## What is Kronus?
 
 Kronus turns Claude Code into a complete AI system you can run from anywhere. It adds three things Claude Code doesn't have out of the box: **mobile access** (via Telegram), **persistent memory** (a knowledge graph that spans sessions and projects), and **a team of specialized agents** that handle different types of work.
 
-You describe what you want built. Claude builds it. Kronus remembers the decisions, learns your preferences, and picks up where you left off — from your terminal or your phone.
-
-Anyone with a Claude plan can use it. No infrastructure to manage. Everything runs on your machine.
+Full technical details: [kronus-tech/kronus README](https://github.com/kronus-tech/kronus)
 
 ## Architecture
 

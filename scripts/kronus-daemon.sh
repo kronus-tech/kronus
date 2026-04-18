@@ -68,7 +68,7 @@ cmd_start() {
 
   # Start daemon in background
   cd "$DAEMON_DIR"
-  nohup bun run src/index.ts > /dev/null 2>&1 &
+  nohup bun run src/index.ts >> "$LOG_FILE" 2>&1 &
   local daemon_pid=$!
 
   # Wait a moment and verify it started

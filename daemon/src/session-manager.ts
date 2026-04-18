@@ -185,6 +185,14 @@ export class SessionManager {
           if (s) s.sessionId = sid
           this.logger.info(`Session ready for ${gId}: ${sid}`)
         },
+        onTurnComplete: (gId) => {
+          const s = this.sessions.get(gId)
+          if (s && s.messageQueue.length > 0) {
+            const next = s.messageQueue.shift()!
+            this.logger.info(`Dequeuing message for ${gId} (${s.messageQueue.length} remaining)`)
+            this.sendToPersistent(gId, next.text, next.messageId)
+          }
+        },
         onProcessDied: (gId) => {
           const s = this.sessions.get(gId)
           if (s) s.isRunning = false

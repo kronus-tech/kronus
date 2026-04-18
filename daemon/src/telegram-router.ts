@@ -65,6 +65,8 @@ export class TelegramRouter {
   private logger: Logger
   private pendingQuestions: Map<string, PendingQuestion> = new Map()
   private statusMessages: Map<string, number> = new Map()
+  private lastUpdateTime = Date.now()
+  private stalenessInterval: ReturnType<typeof setInterval> | null = null
 
   constructor(botToken: string, logger: Logger, sessionTimeoutMs: number, activityTracker?: ActivityTracker) {
     this.bot = new Bot(botToken)
@@ -99,6 +101,12 @@ export class TelegramRouter {
 
   /** Set up grammy message handlers */
   private setupHandlers(): void {
+    // Track last update time for staleness detection
+    this.bot.use(async (ctx, next) => {
+      this.lastUpdateTime = Date.now()
+      await next()
+    })
+
     // Handle callback queries (inline button presses)
     this.bot.on("callback_query:data", async (ctx) => {
       const chatId = String(ctx.chat?.id ?? "")
@@ -1276,13 +1284,25 @@ export class TelegramRouter {
     } catch { /* reactions may not be supported */ }
   }
 
-  /** Callback: send a file */
+  /** Callback: send a file (images render inline, others as documents) */
   private async handleFileSend(groupId: string, filePath: string, _caption: string): Promise<void> {
     const chatId = parseInt(groupId)
     if (isNaN(chatId)) return
     try {
       const { InputFile } = await import("grammy")
-      await this.bot.api.sendDocument(chatId, new InputFile(filePath))
+      const ext = extname(filePath).toLowerCase()
+      const imageExts = [".png", ".jpg", ".jpeg", ".webp", ".gif"]
+
+      if (imageExts.includes(ext)) {
+        try {
+          await this.bot.api.sendPhoto(chatId, new InputFile(filePath))
+        } catch {
+          // Fallback to document if image parsing fails (e.g. corrupt file)
+          await this.bot.api.sendDocument(chatId, new InputFile(filePath))
+        }
+      } else {
+        await this.bot.api.sendDocument(chatId, new InputFile(filePath))
+      }
     } catch (err) {
       this.logger.error(`Failed to send file to ${groupId}: ${err}`)
     }
@@ -1487,11 +1507,25 @@ export class TelegramRouter {
         this.logger.info("Bot polling started")
       },
     })
+
+    // Staleness detection: warn if no updates received for 30 minutes
+    this.stalenessInterval = setInterval(() => {
+      const staleSec = Math.round((Date.now() - this.lastUpdateTime) / 1000)
+      if (staleSec > 1800) {
+        this.logger.error(`STALE: No Telegram updates for ${staleSec}s. Daemon may need restart: kronus-daemon.sh restart`)
+      }
+    }, 60_000)
   }
 
   /** Gracefully stop the bot and all sessions */
   async stop(): Promise<void> {
     this.logger.info("Stopping Telegram router...")
+
+    // Stop staleness detection
+    if (this.stalenessInterval) {
+      clearInterval(this.stalenessInterval)
+      this.stalenessInterval = null
+    }
 
     // Cancel pending questions
     for (const [, pending] of this.pendingQuestions) {

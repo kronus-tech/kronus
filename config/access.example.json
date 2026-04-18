@@ -3,5 +3,5 @@
   "allowFrom": [],
   "groups": {},
   "pending": {},
-  "_instructions": "Add your Telegram user ID to 'allowFrom'. Get it from @userinfobot on Telegram."
+  "_instructions": "Add your Telegram user ID as a STRING (quoted) to 'allowFrom'. Example: [\"123456789\"]. Numbers without quotes will silently fail. Get your ID from @userinfobot on Telegram."
 }

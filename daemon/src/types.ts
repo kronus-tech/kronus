@@ -52,6 +52,9 @@ export interface SessionState {
   lastActivity: number
   isRunning: boolean
   messageQueue: QueuedMessage[]
+  persistent: boolean
+  lastUserMessage: string
+  tempAllowedTools: string[]
 }
 
 export interface QueuedMessage {

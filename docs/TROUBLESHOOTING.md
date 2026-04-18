@@ -94,6 +94,58 @@ BRAIN_ROOTS=~/second-brain|personal
 
 If the bot goes silent mid-response, the Anthropic API may be rate-limiting. Wait 30-60 seconds and it will resume. This is normal during heavy usage or first-time setup when Claude is creating many files.
 
+## /setup Conflicts with Other Bots
+
+When multiple bots are in a Telegram group, `/setup` may be intercepted by another bot or not delivered at all. Solutions:
+
+1. **Use explicit bot addressing**: `/setup@YourBotName /path/to/project`
+2. **Remove other bots** from the group before running `/setup`
+3. **Register the project manually** — see [Manual Project Registration](SETUP.md#manual-project-registration)
+
+## BotFather Privacy Mode
+
+If your bot ignores all messages in groups but works in DMs, privacy mode is likely still enabled. By default, BotFather creates bots with privacy mode **on**, which prevents them from seeing most group messages.
+
+**Fix:**
+1. Open [@BotFather](https://t.me/BotFather) → `/mybots` → select bot → Bot Settings → Group Privacy → **Turn Off**
+2. **Remove and re-add** the bot to existing groups (the privacy change only applies to groups joined after the change)
+
+## User IDs Must Be Strings in access.json
+
+Telegram user IDs in `access.json` must be **strings** (quoted), not numbers:
+
+```json
+"allowFrom": ["7735704872"]     ← correct
+"allowFrom": [7735704872]       ← WRONG, silently fails
+```
+
+**Symptom:** daemon.log shows `Blocked DM from unknown sender: 7735704872` even though the ID is in the file.
+
+## Daemon Goes Silent After 24+ Hours
+
+The daemon's Telegram polling connection can silently drop after long uptime. The bot shows as running but no messages are received.
+
+**Fix:** Restart the daemon:
+```bash
+~/.claude/daemon/scripts/kronus-daemon.sh restart
+```
+
+**Prevent:** Enable autostart so the daemon recovers from crashes:
+```bash
+~/.claude/daemon/scripts/kronus-daemon.sh autostart on
+```
+
+Check daemon.log for `STALE` warnings — these indicate the polling connection may have dropped.
+
+## Git Clone Fails Into Non-Empty Directory
+
+If `git clone https://github.com/kronus-tech/kronus.git .` fails because the directory isn't empty (e.g. Claude Code auto-created `.claude/`), clone into a named folder:
+
+```bash
+git clone https://github.com/kronus-tech/kronus.git kronus
+cd kronus && ./scripts/install.sh
+```
+
 ## Getting Help
 
 1. Check daemon logs: `tail -100 ~/.claude/channels/telegram/logs/daemon.log`
